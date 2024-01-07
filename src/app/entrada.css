@@ -1,0 +1,56 @@
+.entrada-enter {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  .entrada-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 500ms, transform 500ms;
+  }
+  
+  .entrada-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .entrada-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 500ms, transform 500ms;
+  }
+
+  .surgir-enter {
+    opacity: 0;
+    transform: translateY(20px);
+    position: relative;
+  }
+  
+  .surgir-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1000ms ease, transform 500ms ease;
+  }
+  
+  .surgir-enter-done:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  
+  .surgir-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .surgir-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 500ms ease, transform 500ms ease;
+  }
+  
