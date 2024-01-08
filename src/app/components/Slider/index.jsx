@@ -22,7 +22,7 @@ const Slider = ({ images }) => {
   };
 
   return (
-    <div className='max-w-[500px] h-[480px] w-full m-5 py-16 px-4 relative group'>
+    <div className='lg:max-w-[500px] max-w-[350px] h-[480px] w-full m-5 py-16 px-4 relative group'>
       <div className='mb-4'>
         {images.map((image, slideIndex) => (
           <h3

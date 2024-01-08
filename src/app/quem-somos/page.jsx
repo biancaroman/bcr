@@ -13,11 +13,11 @@ const somos = () => {
   return (
     <div className='w-full h-[90vh]'>
         <NavBar isBlackBackground={true} />
-        <Image src={imagemContato} className='w-full h-[500px] object-cover' style={{ filter: 'brightness(0.7)' }} />
+        <Image src={imagemContato} className='w-full h-[400px] object-cover' style={{ filter: 'brightness(0.7)' }} />
         <div className='flex justify-center items-center'>
-        <div className='absolute mx-auto left-0 right-0 w-full max-w-[600px] h-[400px] flex flex-col text-white p-4 text-center'>
-  <h1 className='font-bold text-5xl '>QUEM SOMOS</h1>
-  <hr className="mt-5 ml-52 w-40 border-b-4 border-yellow-400" />
+        <div className='absolute mx-auto left-0 right-0 w-full max-w-[600px] h-[300px] flex flex-col text-white p-4 text-center'>
+  <h1 className='font-bold sm:text-5xl text-4xl'>QUEM SOMOS</h1>
+  <hr className=" hidden sm:block  mt-5 ml-52 w-40 border-b-4 border-yellow-400 " />
 </div>
 
         </div>

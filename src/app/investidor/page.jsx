@@ -45,11 +45,11 @@ const Investidor = () => {
   return (
     <div className='w-full h-[90vh]'>
       <NavBar isBlackBackground={true} />
-      <Image src={imagemInvestidor} className='w-full h-[500px] object-cover' style={{ filter: 'brightness(0.7)' }} />
+      <Image src={imagemInvestidor} className='w-full lg:h-[500px] h-[400px] object-cover' style={{ filter: 'brightness(0.7)' }} />
       <div className='flex justify-center items-center'>
-        <div className='absolute mx-auto left-0 right-0 w-full max-w-[600px] h-[400px] flex flex-col text-white p-4 text-center'>
-          <h1 className='font-bold text-5xl '>INVESTIDORES</h1>
-          <hr className="mt-5 ml-52 w-40 border-b-4 border-yellow-400" />
+        <div className='absolute mx-auto left-0 right-0 w-full max-w-[600px] lg:h-[500px] h-[300px] flex flex-col text-white p-4 text-center'>
+          <h1 className='font-bold sm:text-5xl text-4xl '>INVESTIDORES</h1>
+          <hr className="hidden sm:block mt-5 ml-52 w-40 border-b-4 border-yellow-400" />
         </div>
       </div>
       <div className='max-w-[1140px] m-auto w-full p-4 py-16'>
@@ -74,7 +74,7 @@ const Investidor = () => {
 ))}
 
 <input
-  className={`border m-2 p-2 ${camposInvalidos.map(({ campo }) => campo === 'email' && 'border-red-500').join(' ')}`}
+  className={`border col-span-2 lg:col-span-1  m-2 p-2${camposInvalidos.map(({ campo }) => campo === 'email' && 'border-red-500').join(' ')}`}
   type='email'
   placeholder='Email'
   value={email}
@@ -87,7 +87,7 @@ const Investidor = () => {
 ))}
 
 <input
-  className={`border m-2 p-2 ${camposInvalidos.map(({ campo }) => campo === 'telefone' && 'border-red-500').join(' ')}`}
+  className={`border col-span-2 lg:col-span-1  m-2 p-2 ${camposInvalidos.map(({ campo }) => campo === 'telefone' && 'border-red-500').join(' ')}`}
   type='tel'
   placeholder='Telefone'
   value={telefone}

@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 
 const HoverCard = ({ text, instagramLink, whatsappLink, facebookLink, tiktokLink }) => (
-  <div className="absolute inset-0 bg-gradient-to-b from-gray-500/20 to-black flex flex-col items-center justify-center text-white opacity-0 hover:opacity-100 transition-all duration-200">
-    <p className="text-md text-center m-20">{text}</p>
-    <div className="flex mt-4 space-x-4">
+  <div className="absolute inset-0 bg-gradient-to-b from-gray-500/20 to-black flex flex-col items-center lg:justify-center text-white opacity-0 hover:opacity-100 transition-all duration-200">
+    <p className="lg:text-md text-sm lg:text-center lg:m-20 m-5">{text}</p>
+    <div className="flex lg:mt-4 space-x-4">
       <a href={instagramLink}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const ServiceCard = ({ image, title, description, instagramLink, whatsappLink, f
 
   return (
     <div
-      className="group relative h-96 w-full cursor-pointer overflow-hidden shadow-lg shadow-black/30 transition-all duration-200"
+      className="group relative h-96 w-full cursor-pointer overflow-hidden shadow-lg shadow-black/30"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -76,11 +76,11 @@ const ImageSlider = () => {
             image="/img/construcao3.jpg"
             title="Construções"
             description="Realize suas construções conosco"
-            instagramLink="https://www.instagram.com/construtora.bcr"
+            instagramLink="https://www.instagram.com/bcrconstrutora"
             whatsappLink="https://api.whatsapp.com/send?phone=11915939002"
             facebookLink="#"
             tiktokLink="#"
-            hoverText="Na engenharia e na arquitetura, a construção é a execução do projeto previamente elaborado, seja de uma edificação ou de uma obra de arte, que são obras de maior porte destinadas a infraestrutura como pontes, viadutos ou túneis., algumas informações que devem constar no memorial descritivo de acordo com a ABNT:
+            hoverText=" seja de uma edificação ou de uma obra de arte, que são obras de maior porte destinadas a infraestrutura como pontes, viadutos ou túneis., algumas informações que devem constar no memorial descritivo de acordo com a ABNT:
             1. localização da obra.
             2. proprietário.
             3. detalhe de cada etapa da construção.
@@ -94,7 +94,7 @@ const ImageSlider = () => {
             image="/img/reformas.jpg"
             title="Reformas"
             description="Realize suas reformas conosco"
-            instagramLink="https://www.instagram.com/construtora.bcr"
+            instagramLink="https://www.instagram.com/bcrconstrutora"
             whatsappLink="https://api.whatsapp.com/send?phone=11915939002"
             facebookLink="#"
             tiktokLink="#"
@@ -111,17 +111,18 @@ const ImageSlider = () => {
             image="/img/projetos.jpeg"
             title="Projetos Arquitetônicos"
             description="Desenvolvemos projetos personalizados"
-            instagramLink="https://www.instagram.com/construtora.bcr"
+            instagramLink="https://www.instagram.com/bcrconstrutora"
             whatsappLink="https://api.whatsapp.com/send?phone=11915939002"
             facebookLink="#"
             tiktokLink="#"
-            hoverText="O projeto de obra, é um importante instrumento, que reúne todas as informações relevantes da obra, desde a sua concepção e execução, até a finalização e entrega do espaço. O desenvolvimento do projeto, prevê desde os cálculos estruturais da obra, bem como o dimensionamento hidráulico, elétrico, disposição dos ambientes, layout dos espaços, cronograma de atividades, e os materiais necessários em cada etapa. Na BCR Construções, o cliente tem grande participação e influência na elaboração do projeto, pois é através deste plano, que buscamos atender as suas necessidades e desejos, executando sua obra com segurança, qualidade e compromisso!"
+            hoverText="
+            O projeto de obra é um instrumento crucial que compila informações relevantes desde a concepção até a entrega do espaço. Inclui cálculos estruturais, dimensionamento hidráulico e elétrico, disposição de ambientes, layout, cronograma de atividades e materiais necessários. Na BCR Construções, valorizamos a participação e influência do cliente na elaboração do projeto para atender às suas necessidades, garantindo segurança, qualidade e compromisso na execução da obra."
           />
           <ServiceCard
             image="/img/regularizacao.jpg"
             title="Regularização de Imóveis"
             description="Venha regularizar seus imóveis conosco"
-            instagramLink="https://www.instagram.com/construtora.bcr"
+            instagramLink="https://www.instagram.com/bcrconstrutora"
             whatsappLink="https://api.whatsapp.com/send?phone=11915939002"
             facebookLink="#"
             tiktokLink="#"

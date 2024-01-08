@@ -3,14 +3,16 @@
 import React, { useState, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 import VideoHome from "../components/VideoHome";
+import imagemHome from "/public/img/home.jpg"
 import Slider from "../components/Slider";
 import "../entrada.css";
+import Image from 'next/image'
 
 
 const prediosZS = [
   {
     url: '/img/predioszs/gileade2.jpg',
-    title: 'Vila Mariana - Zona Sul',
+    title: 'Zona Sul',
     link: 'https://residencialgileade.com.br',
   },
   {
@@ -78,10 +80,7 @@ const sobradoZS = [
   },
   {
     url: '/img/sobradozs/sobradozs3.jpg',
-  },
-  {
-    url: '/video/sobradozs/VIDEO-2024-01-06-14-32-07.mp4',
-  },
+  }
 ];
 
 const sobradoZL = [
@@ -101,9 +100,6 @@ const sobradoSalto = [
   {
     url: '/img/sobradosalto/sobradosalto1.jpg',
     title: 'Salto',
-  },
-  {
-    url: '/img/sobradosalto/sobradosalto2.jpg',
   },
   {
     url: '/img/sobradosalto/sobradosalto3.jpg',
@@ -137,16 +133,21 @@ const Inicio = () => {
   return (
     <main>
       <section className="w-full ">
-        <VideoHome videoUrl={videoUrl}/>
+      <div className="sm:block lg:hidden xl:hidden">
+        <Image src={imagemHome} className='w-full h-[550px] object-cover' style={{ filter: 'brightness(0.7)' }} />
+      </div>
+      <div className="hidden sm:hidden lg:block xl:block">
+        <VideoHome videoUrl={videoUrl} />
+      </div>
         <div className="max-w-screen m-auto ">
-          <div className="absolute lg:top-[35%] md:top-[25%] sm:top-[10%] w-full md:left-[50%] md:translate-x-[-50%] h-full flex flex-col p-4 text-white">
+          <div className="absolute lg:top-[60%] md:top-[35%] top-[20%] w-full md:left-[50%] md:translate-x-[-50%] h-full flex flex-col p-4 sm:mt-[-10%] text-white">
             <CSSTransition
               in={isVisible}
               timeout={1500}
               classNames="surgir"
               unmountOnExit
             >
-             <h1 className="font-bold lg:text-4xl md:text-3xl sm:text-xl text-center p-2">
+             <h1 className="font-bold lg:text-4xl md:text-3xl text-2xl text-center p-2">
                 Venha construir seus sonhos conosco!
               </h1>
             </CSSTransition>
@@ -156,8 +157,8 @@ const Inicio = () => {
               classNames="surgir"
               unmountOnExit
             >
-              <h2 className="text-center lg:text-3xl md:text-2xl sm:text-xl py-4 italic p-2">
-                Expertise em construção civil e reformas <br /> com a qualidade que você merece!
+              <h2 className="text-center lg:text-3xl md:text-2xl text-sm py-4 italic p-2">
+                Expertise em construção civil e reformas com a qualidade que você merece!
               </h2>
             </CSSTransition>
             <CSSTransition
@@ -166,14 +167,14 @@ const Inicio = () => {
               classNames="surgir"
               unmountOnExit
             >
-              <p className="text-center sm:text-sm lg:text-lg xl:text-xl p-4">
+              <p className="text-center text-sm lg:text-lg xl:text-xl p-4">
               A BCR Construções Incorporações e Participações Ltda, uma empresa de construção renomada e confiável. <br /> Temos o prazer de oferecer serviços de alta qualidade, contando com equipes de mão de obra qualificada <br /> e arquitetos prontos para atendê-los da melhor forma possível.
               </p>
             </CSSTransition>
             </div>
           </div>
             <div className="text-black text-center "> 
-            <h1 className="text-4xl font-semibold mt-10">Breves Lançamentos</h1>  
+            <h1 className="text-3xl lg:text-4xl font-semibold mt-10">Breves Lançamentos</h1>  
             <p className="mt-4">Clique nas imagens abaixo para mais informações!</p>
             </div>
           < div className="flex flex-col lg:flex-row">

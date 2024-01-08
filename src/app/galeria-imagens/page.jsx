@@ -40,11 +40,11 @@ const Galeria = () => {
   return (
     <div className='w-full h-[90vh]'>
       <NavBar isBlackBackground={true} />
-      <Image src={imagemGaleria} className='w-full h-[500px] object-cover' style={{ filter: 'brightness(0.7)' }} />
+      <Image src={imagemGaleria} className='w-full lg:h-[500px] h-[400px] object-cover' style={{ filter: 'brightness(0.7)' }} />
       <div className='flex justify-center items-center'>
-        <div className='absolute mx-auto left-0 right-0 w-full max-w-[600px] h-[400px] flex flex-col text-white p-4 text-center'>
-          <h1 className='font-bold text-5xl '>GALERIA</h1>
-          <hr className="mt-5 ml-52 w-40 border-b-4 border-yellow-400" />
+        <div className='absolute mx-auto left-0 right-0 w-full max-w-[600px] lg:h-[400px] h-[300px] flex flex-col text-white p-4 text-center'>
+          <h1 className='font-bold sm:text-5xl text-4xl '>GALERIA</h1>
+          <hr className="hidden sm:block mt-5 ml-52 w-40 border-b-4 border-yellow-400" />
         </div>
       </div>
       <div className='max-w-[1140px] m-auto w-full px-4 py-16'>
