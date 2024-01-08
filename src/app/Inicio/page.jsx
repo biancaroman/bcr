@@ -140,7 +140,7 @@ const Inicio = () => {
         <VideoHome videoUrl={videoUrl} />
       </div>
         <div className="max-w-screen m-auto ">
-          <div className="absolute lg:top-[60%] md:top-[35%] top-[20%] w-full md:left-[50%] md:translate-x-[-50%] h-full flex flex-col p-4 sm:mt-[-10%] text-white">
+          <div className="absolute lg:top-[60%] md:top-[35%] top-[25%] w-full md:left-[50%] md:translate-x-[-50%] h-full flex flex-col p-4 sm:mt-[-10%] text-white">
             <CSSTransition
               in={isVisible}
               timeout={1500}
@@ -157,7 +157,7 @@ const Inicio = () => {
               classNames="surgir"
               unmountOnExit
             >
-              <h2 className="text-center lg:text-3xl md:text-2xl text-sm py-4 italic p-2">
+              <h2 className="hidden sm:block text-center lg:text-3xl md:text-2xl text-sm py-4 italic p-2">
                 Expertise em construção civil e reformas com a qualidade que você merece!
               </h2>
             </CSSTransition>
