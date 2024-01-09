@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import NavBar from '../components/NavBar';
 import Image from 'next/image';
 import imagemInvestidor from "/public/img/investidores2.jpg";
@@ -16,10 +18,9 @@ const Investidor = () => {
   const [mensagem, setMensagem] = useState('');
   const [camposInvalidos, setCamposInvalidos] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Verifica campos obrigatórios
     const camposObrigatorios = [
       { campo: 'nome', valor: nome },
       { campo: 'email', valor: email },
@@ -33,13 +34,42 @@ const Investidor = () => {
 
     setCamposInvalidos(camposNaoPreenchidos);
 
-    // Se algum campo obrigatório não foi preenchido, não prossegue com a submissão do formulário
     if (camposNaoPreenchidos.length > 0) {
       return;
     }
 
-    // Lógica de envio do formulário
-    console.log('Formulário enviado com sucesso!');
+    const formData = new FormData();
+    formData.append('nome', nome);
+    formData.append('email', email);
+    formData.append('telefone', telefone);
+    formData.append('assunto', assunto);
+    formData.append('valor', valor);
+    formData.append('retorno', retorno);
+    formData.append('mensagem', mensagem);
+
+    try {
+      const response = await fetch('https://api.sheetmonkey.io/form/4LXUitxaGXs1QMHnatZMPs', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        console.log('Formulário enviado com sucesso!');
+        toast.success('Dados enviados com sucesso!', { position: 'bottom-center' });
+
+        setNome('');
+        setEmail('');
+        setTelefone('');
+        setAssunto('');
+        setValor('');
+        setRetorno('');
+        setMensagem('');
+      } else {
+        console.error('Erro ao enviar formulário:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error.message);
+    }
   };
 
   return (
@@ -47,7 +77,7 @@ const Investidor = () => {
       <NavBar isBlackBackground={true} />
       <Image src={imagemInvestidor} className='w-full lg:h-[500px] h-[400px] object-cover' style={{ filter: 'brightness(0.7)' }} />
       <div className='flex justify-center items-center'>
-        <div className='absolute mx-auto left-0 right-0 w-full max-w-[600px] lg:h-[500px] h-[300px] flex flex-col text-white p-4 text-center'>
+        <div className='absolute mx-auto left-0 right-0 w-full max-w-[600px] lg:h-[400px] h-[300px] flex flex-col text-white p-4 text-center'>
           <h1 className='font-bold sm:text-5xl text-4xl '>INVESTIDORES</h1>
           <hr className="hidden sm:block mt-5 ml-52 w-40 border-b-4 border-yellow-400" />
         </div>
@@ -163,6 +193,7 @@ const Investidor = () => {
           </form>
         </div>
       </div>
+      <ToastContainer position="bottom-center" autoClose={5000} />
       <Footer />
     </div>
   );
