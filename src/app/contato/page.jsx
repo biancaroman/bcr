@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import NavBar from '../components/NavBar';
 import Image from 'next/image';
 import imagemContato from "/public/img/contato.jpg";
@@ -14,7 +16,7 @@ const Contato = () => {
   const [mensagem, setMensagem] = useState('');
   const [camposInvalidos, setCamposInvalidos] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Verifica campos obrigatórios
@@ -33,9 +35,34 @@ const Contato = () => {
     if (camposNaoPreenchidos.length > 0) {
       return;
     }
+    const formData = new FormData();
+    formData.append('nome', nome);
+    formData.append('email', email);
+    formData.append('telefone', telefone);
+    formData.append('assunto', assunto);
+    formData.append('mensagem', mensagem);
 
-    // Lógica de envio do formulário
-    console.log('Formulário enviado com sucesso!');
+    try {
+      const response = await fetch('https://api.sheetmonkey.io/form/4LXUitxaGXs1QMHnatZMPs', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        console.log('Formulário enviado com sucesso!');
+        toast.success('Dados enviados com sucesso!', { position: 'bottom-center' });
+
+        setNome('');
+        setEmail('');
+        setTelefone('');
+        setAssunto('');
+        setMensagem('');
+      } else {
+        console.error('Erro ao enviar formulário:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error.message);
+    }
   };
 
   return (
@@ -124,6 +151,7 @@ const Contato = () => {
           </form>
         </div>
       </div>
+      <ToastContainer position="bottom-center" autoClose={5000} />
       <Footer />
     </div>
   );
