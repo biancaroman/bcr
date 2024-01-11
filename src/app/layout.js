@@ -1,4 +1,6 @@
-import './globals.css'
+// Arquivo RootLayout.js (ou o nome que você está usando)
+
+import './globals.css';
 
 const montserrat = {
   fontFamily: 'Montserrat, sans-serif',
@@ -22,16 +24,25 @@ const montserrat = {
 export const metadata = {
   title: 'BCR Construcoes e Incorporacoes',
   description: 'Site da BCR',
-}
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      <body style={{ fontFamily: montserrat.fontFamily }}>
+      <head>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <style>{`
+          body {
+            font-family: ${montserrat.fontFamily};
+          }
+        `}</style>
+      </head>
+      <body>
         <div className="min-h-screen">
           <main>{children}</main>
         </div>
       </body>
     </html>
-  )
+  );
 }
+
